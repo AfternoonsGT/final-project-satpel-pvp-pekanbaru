@@ -59,6 +59,7 @@
       </div>
 
 @include('admin.components.js')
+@stack('scripts')
 
 <footer class="footer mt-auto">
   <div class="container">

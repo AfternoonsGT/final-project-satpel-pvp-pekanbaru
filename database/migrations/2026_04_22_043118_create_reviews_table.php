@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('zones', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->string('price_range');
-            $table->string('image')->nullable();
+            $table->morphs('reviewable');
+            $table->string('reviewer_name');
+            $table->text('description')->nullable();
+            $table->integer('rating');
+            $table->text('comment');
+            $table->boolean('is_approved')->default(false);
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('zones');
+        Schema::dropIfExists('reviews');
     }
 };

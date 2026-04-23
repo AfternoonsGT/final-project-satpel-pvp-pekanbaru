@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('zones', function (Blueprint $table) {
-            $table->id();
+        Schema::create('attractions', function (Blueprint $table) {
+           $table->id();
+            $table-> foreignId('zone_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->text('description');
-            $table->string('price_range');
+            $table->text('description')->nullable();
+            $table->integer('price_range');
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('zones');
+        Schema::dropIfExists('attractions');
     }
 };

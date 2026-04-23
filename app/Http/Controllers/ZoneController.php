@@ -39,12 +39,14 @@ class ZoneController extends Controller
 
     public function show($id)
     {
-        return view('admin.pages.zones.show');
+        $zone = Zone::findorFail($id);
+        return view('admin.pages.zones.show', compact('zone'));
     }
 
     public function edit($id)
     {
-        return view('admin.pages.zones.edit');
+        $zone = Zone::findorFail($id);
+        return view('admin.pages.zones.edit', compact('zone'));
     }
 
     public function update(Request $request, $id)
@@ -67,8 +69,8 @@ class ZoneController extends Controller
 
         }
         $zone->update($validated);
-        return redirect()->route('zones.index')->with('success', 'Zone updated successfully.');
-        return redirect()->route('zones.index')->with('error', 'Failed to update zone.');
+        return redirect()->route('admin.zones.index')->with('success', 'Zone updated successfully.');
+        return redirect()->route('admin.zones.index')->with('error', 'Failed to update zone.');
     }
     
     public function destroy($id)
@@ -76,9 +78,9 @@ class ZoneController extends Controller
         $zone =Zone::find($id);
         if ($zone) {
             $zone->delete();
-            return redirect('/zones')->with('success', 'Zone deleted succesfully.');
+            return redirect()->route('admin.zones.index')->with('success', 'Zone deleted succesfully.');
         } else {
-            return redirect('/zones')->with('error', 'Zone not found.');
+            return redirect()->route('admin.zones.index')->with('error', 'Zone not found.');
         }
     }
 

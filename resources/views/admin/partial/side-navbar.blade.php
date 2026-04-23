@@ -12,202 +12,68 @@
 
     <!-- Nav item -->
     <li class="nav-item">
-      <a class="nav-link" href="../index.html"><span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg"
-            width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
-            <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
-          </svg></span> <span class="text">Ecommerce</span></a>
-    </li>
-
-
-
-
-
-    <li class="nav-item">
-      <div class="nav-heading">Pages</div>
-      <hr class="mx-5 nav-line mb-1" />
-    </li>
-    <!-- Nav item -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <a class="nav-link" href="{{ route('admin.zones.index') }}">
         <span class="nav-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-file">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-map">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+            <path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13z" />
+            <path d="M9 4v13" />
+            <path d="M15 7v13" />
           </svg>
         </span>
-        <span class="text">Pages</span>
+        <span class="text">Zones</span>
       </a>
-      <ul class="dropdown-menu flex-column">
-
-
-
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/error/maintenance.html">Maintenance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/error/404-error.html">404 Error</a>
-        </li>
-      </ul>
-    </li>
-    <!-- Nav item -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="nav-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-lock">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
-            <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
-            <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
-          </svg>
-        </span>
-        <span class="text">Authentication</span>
-      </a>
-      <ul class="dropdown-menu flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/authentication/sign-in.html">Sign In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/authentication/sign-up.html">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/authentication/forget-password.html">Forget Password</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/authentication/reset-password.html">Reset Password</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../pages/authentication/otp-varification.html">Otp Varification </a>
-        </li>
-      </ul>
     </li>
 
 
 
 
 
-
-
-    <!-- Nav item -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="nav-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-menu-deep">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M4 6h16" />
-            <path d="M7 12h13" />
-            <path d="M10 18h10" />
-          </svg>
-        </span>
-        <span class="text">Menu Level</span>
-      </a>
-      <ul class="dropdown-menu flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="#!">Level 1a</a>
-        </li>
-
-        <li class="dropdown-submenu">
-          <a class="nav-link dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">Level 1b</a>
-          <ul class="dropdown-menu">
-            <li class="nav-item">
-              <a class="nav-link" href="#!">Level 2a</a>
-            </li>
-            <li class="dropdown-submenu">
-              <a class="nav-link dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Level 2b</a>
-              <ul class="dropdown-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="#!">Level 3a</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#!">Level 3b</a>
-                </li>
-              </ul>
-            </li>
-
-          </ul>
-        </li>
-
-      </ul>
-    </li>
     <!-- Nav item -->
     <li class="nav-item">
-      <a class="nav-link disabled text-gray-400" href="#!" aria-disabled="true" style="cursor:not-allowed">
+      <a class="nav-link" href="{{ route('admin.attractions.index') }}">
         <span class="nav-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-circle-off">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-star">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M20.042 16.045a9 9 0 0 0 -12.087 -12.087m-2.318 1.677a9 9 0 1 0 12.725 12.73" />
-            <path d="M3 3l18 18" />
+            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
           </svg>
         </span>
-        <span class="text">Disabled</span>
+        <span class="text">Attractions</span>
       </a>
     </li>
     <!-- Nav item -->
     <li class="nav-item">
-      <a class="nav-link position-relative " href="#!">
+      <a class="nav-link" href="{{ route('admin.reviews.index') }}">
         <span class="nav-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-tag">
+            class="icon icon-tabler icons-tabler-outline icon-tabler-message">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-            <path
-              d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
+            <path d="M8 9h8" />
+            <path d="M8 13h6" />
+            <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3l-5.5 3l-5.5 -3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3z" />
           </svg>
         </span>
-        <span class="text">Label
-          <span class="badge bg-info-subtle text-info-emphasis position-absolute end-0 me-2">New</span></span>
+        <span class="text">Reviews</span>
       </a>
     </li>
-    <!-- Nav item -->
-    <li class="nav-item">
-      <a class="nav-link position-relative " href="#!" aria-label="External Link">
-        <span class="nav-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-external-link">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
-            <path d="M11 13l9 -9" />
-            <path d="M15 4h5v5" />
-          </svg>
-        </span>
-        <span class="text">External Link </span>
 
-      </a>
-    </li>
-    <!-- Nav item -->
-    <li class="nav-item">
-      <a class="nav-link position-relative " href="../pages/blank.html"
-        aria-label="External Link">
-        <span class="nav-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            class="icon icon-tabler icons-tabler-outline icon-tabler-file">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-          </svg>
-        </span>
-        <span class="text">Blank </span>
 
-      </a>
-    </li>
+
+
+
+
+
+
+
+
+
+
+
     <!-- Nav item -->
     <li>
       <div class="text-center py-5 upgrade-ui ">

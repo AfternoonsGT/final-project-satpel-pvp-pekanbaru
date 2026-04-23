@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ZoneController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttractionController;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/', function () {
     $zones = \App\Models\Zone::all();
@@ -19,7 +21,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
     })->name('index');
 
     Route::resource('zones', ZoneController::class);
+    Route::resource('attractions', AttractionController::class);
+    
+}); Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('reviews', ReviewController::class);
+
+    Route::post('reviews/{id}/toggle-approve', [ReviewController::class, 'toggleApprove'])
+        ->name('reviews.toggleApprove');
 });
+    
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

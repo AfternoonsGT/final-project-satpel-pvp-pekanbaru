@@ -4,17 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Zone extends Model
+class Attraction extends Model
 {
     protected $fillable = [
         'name',
         'description',
+        'zone_id',
         'price_range',
         'image',
     ];
-    public function attractions()
+
+    public function zone()
     {
-        return $this->hasMany(Attraction::class);
+        return $this->belongsTo(Zone::class);
     }
     public function reviews()
 {
