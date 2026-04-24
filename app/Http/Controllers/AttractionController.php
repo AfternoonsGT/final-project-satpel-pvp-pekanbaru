@@ -96,4 +96,16 @@ class AttractionController extends Controller
         return redirect()->route('admin.attractions.index')
             ->with('success', 'Attraction deleted successfully.');
     }
+
+   public function showAttractions($id)
+{
+    $attraction = Attraction::findOrFail($id);
+
+    $reviews = $attraction->reviews()
+        ->where('is_approved', true)
+        ->latest()
+        ->get();
+
+    return view('landing.pages.detail-attractions', compact('attraction', 'reviews'));
+}
 }

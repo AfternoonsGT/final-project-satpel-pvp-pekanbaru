@@ -20,12 +20,11 @@
 			<div class="row">
 				<div class="col-md-9 col-sm-9 col-xs-12">
 					<div class="property_single_details_slide">
-						<img src="{{asset('storage/landing/asset/img/2.jpg')}}" class="img-fluid" alt="About-Slide">
+						<img src="{{asset('storage/images/' . $attraction->image)}}" class="img-fluid" alt="About-Slide">
 					</div>
 					<div class="property_single_details_price">
-						<h1>2045 B Street</h1>
-						<h4>$235,254</h4>
-						<p>2369 Robinson Lane Jackson, OH 45640</p>
+						<h1>{{ $attraction->name }}</h1>
+						<h4>${{$attraction->price_range }}</h4>
 						<ul>
 							<li><i class="fa fa-check"></i> 4 bed rooms</li>
 							<li><i class="fa fa-check"></i> 1 garage</li>
@@ -34,13 +33,7 @@
 					</div>
 					<div class="property_single_details_description">
 						<h4>Property description</h4>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-							galley of type and scrambled it to make a type specimen book. It has survived not only five
-							centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-							It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-							passages, and more recently with desktop publishing software like Aldus PageMaker including
-							versions of Lorem Ipsum.</p>
+						<p>{{ $attraction->description }}</p>
 					</div>
 					<div class="property_info">
 						<div class="row">
@@ -138,25 +131,38 @@
 				</div><!--- END COL -->
 				<div class="col-md-3 col-sm-3 col-xs-12">
 					<div class="single_property_form">
-						<h4>Enquire here</h4>
-						<form class="form" name="enq" method="post" action="contact.php"
-							onsubmit="return validation();">
+						<h4>Review The attraction</h4>
+						<form class="form" name="enq" method="post" action="{{ route('landing.attraction.reviews.store') }}" onsubmit="return validation();">
+							@csrf
 							<div class="row">
 								<div class="form-group col-md-12">
-									<input type="text" name="name" class="form-control" id="first-name"
+									<input type="hidden" name="reviewable_id" value="{{$attraction->id}}">
+							<input type="hidden" name="reviewable_type" value="{{ get_class($attraction) }}">
+									<input type="text" name="reviewer_name" class="form-control" id="first-name"
 										placeholder="Name" required="required">
+									@error('reviewer_name')
+										<div class="text-danger">{{ $message }}</div>
+									@enderror
 								</div>
 								<div class="form-group col-md-12">
-									<input type="email" name="email" class="form-control" id="email" placeholder="Email"
-										required="required">
+									<select name="rating" id="rating" class="form-control" required>
+										<option value="">Rating</option>
+										<option value="5">⭐⭐⭐⭐⭐</option>
+										<option value="4">⭐⭐⭐⭐</option>
+										<option value="3">⭐⭐⭐</option>
+										<option value="2">⭐⭐</option>
+										<option value="1">⭐</option>
+									</select>
+									@error('rating')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
 								</div>
-								<div class="form-group col-md-12">
-									<input type="text" name="phone" class="form-control" id="phone" placeholder="Phone"
-										required="required">
-								</div>
+
 								<div class="form-group col-md-12 mbnone">
-									<textarea rows="6" name="message" class="form-control" id="description"
-										placeholder="Your Message" required="required"></textarea>
+									<textarea rows="6" name="comment" class="form-control" id="comment" placeholder="Your Message" required="required"></textarea>
+									@error('comment')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
 								</div>
 								<div class="col-md-12">
 									<div class="actions">
@@ -167,6 +173,7 @@
 							</div>
 						</form>
 					</div>
+					
 					<div class="single_property_form_agent">
 						<div class="single_property_form_agent_profile">
 							<img src="{{asset('storage/landing/asset/img/team/team-1.jpg')}}" class="img-fluid" alt="" />
@@ -177,8 +184,41 @@
 							<img src="{{asset('storage/landing/asset/img/team/team-2.jpg')}}" class="img-fluid" alt="" />
 							<h4><i class="fa fa-phone"></i> +88 123 123 123</h4>
 							<h4><a href="#">info@example.com</a></h4>
+							
 						</div>
 					</div>
+					<div class="property_reviews mt-5">
+    <h4 class="mb-4">Visitor Reviews</h4>
+
+    @forelse($reviews as $review)
+        <div class="review-card mb-3 p-4 rounded shadow-sm bg-white">
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="reviewer-name">
+                    <strong>{{ $review->reviewer_name }}</strong>
+                </div>
+
+                <div class="review-rating text-warning">
+                    {!! str_repeat('★', $review->rating) !!}
+                    {!! str_repeat('☆', 5 - $review->rating) !!}
+                </div>
+            </div>
+
+            <p class="mb-1 text-muted" style="font-size: 14px;">
+                {{ $review->comment }}
+            </p>
+
+            <small class="text-secondary">
+                        {{ $review->created_at->diffForHumans() }}
+                    </small>
+
+        </div>
+    @empty
+        <div class="text-center text-muted p-4 border rounded">
+            Belum ada review untuk attraction ini.
+        </div>
+    @endforelse
+</div>
 				</div><!--- END COL -->
 			</div>
 		</div>

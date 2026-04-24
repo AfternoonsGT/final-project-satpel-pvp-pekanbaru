@@ -84,6 +84,16 @@ class ZoneController extends Controller
         }
     }
 
-   
+public function showZones($id)
+{
+    $zone = Zone::findOrFail($id);
+
+    $reviews = $zone->reviews()
+        ->where('is_approved', true) // hanya yang disetujui
+        ->latest()
+        ->get();
+
+    return view('landing.pages.detail-zones', compact('zone', 'reviews'));
+}
 
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->morphs('reviewable');
             $table->string('reviewer_name');
-            $table->text('description')->nullable();
+            
             $table->integer('rating');
             $table->text('comment');
             $table->boolean('is_approved')->default(false);

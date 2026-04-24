@@ -22,19 +22,16 @@ class ReviewController extends Controller
     {
         $validated = $request->validate([
             'reviewer_name' => 'required|string|max:255',
-            'description'   => 'nullable|string',
+            'reviewable_id' => 'required|integer',
+            'reviewable_type' => 'required|string',
             'rating'        => 'required|integer|min:1|max:5',
             'comment'       => 'required|string',
         ]);
 
-        // default polymorphic (WAJIB kalau belum dipilih di form)
-        $validated['reviewable_type'] = \App\Models\Attraction::class;
-        $validated['reviewable_id'] = $request->reviewable_id ?? null;
-
         Review::create($validated);
 
-        return redirect()->route('admin.reviews.index')
-            ->with('success', 'Review created successfully.');
+        return redirect()->back()
+            ->with('success', 'Review submitted successfully.');
     }
 
     public function show($id)
@@ -55,7 +52,7 @@ class ReviewController extends Controller
 
         $validated = $request->validate([
             'reviewer_name' => 'required|string|max:255',
-            'description'   => 'nullable|string',
+            
             'rating'        => 'required|integer|min:1|max:5',
             'comment'       => 'required|string',
         ]);
@@ -84,4 +81,10 @@ class ReviewController extends Controller
 
     return redirect()->back()->with('success', 'Review status updated successfully.');
 }
+
+    public function showReviews()
+    {
+        $reviews = Review::where('is_approved', true)->with('reviewable')->get();
+        return view('landing.pages.reviews', compact('reviews'));
+    }
 }

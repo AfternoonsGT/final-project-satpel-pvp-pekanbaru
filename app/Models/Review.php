@@ -10,7 +10,6 @@ class Review extends Model
         'reviewable_id',
         'reviewable_type',
         'reviewer_name',
-        'description',
         'rating',
         'comment',
         'is_approved',
